@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЗДО «Садочок Ластівка»</title>
+<style>
+body{margin:0;font-family:Arial;background:#f4fdf7}
+header{background:#2ecc71;color:#fff;padding:15px;text-align:center;position:relative}
+header button{position:absolute;right:15px;top:15px;padding:8px 12px;background:#27ae60;color:#fff;border:none;border-radius:5px;cursor:pointer}
+header button:hover{background:#1e8449}
+nav{display:flex;flex-wrap:wrap;justify-content:center;background:#27ae60}
+nav button{border:none;background:none;color:#fff;padding:10px 14px;cursor:pointer}
+nav button:hover{background:rgba(255,255,255,.2)}
+.section{display:none;padding:20px}
+.section.active{display:block}
+.card{background:#fff;padding:15px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1)}
+iframe{width:100%;height:550px;border:none;border-radius:8px}
+select{padding:10px;width:100%;margin-bottom:10px;border-radius:6px;border:1px solid #ccc}
+footer{text-align:center;padding:15px;background:#eee;font-size:13px}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);justify-content:center;align-items:center}
+.modal-content{background:#fff;padding:20px;border-radius:10px;width:300px;position:relative}
+.modal-content input{width:100%;padding:8px;margin:10px 0;border-radius:5px;border:1px solid #ccc}
+.modal-content button{padding:8px 12px;border:none;background:#2ecc71;color:#fff;border-radius:5px;cursor:pointer}
+.modal-content button:hover{background:#27ae60}
+.close{position:absolute;top:10px;right:15px;font-size:18px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header>
+<h1>ЗДО «Садочок Ластівка»</h1>
+<p>Офіційний сайт</p>
+<button onclick="openModal()">Увійти</button>
+</header>
+
+<nav id="mainNav">
+<button onclick="openSec('news')">Новини</button>
+<button onclick="openSec('album')">Фотоальбом</button>
+<button onclick="openSec('groups')">Групи</button>
+<button onclick="openSec('statut')">Статут</button>
+<button onclick="openSec('collective')">Педколектив</button>
+<button onclick="openSec('attestation')">Атестація</button>
+<button onclick="openSec('schedule')">Розклад</button>
+<button onclick="openSec('worktime')">Режим роботи</button>
+<button onclick="openSec('orders')">Накази</button>
+<button onclick="openSec('inclusive')">Інклюзивна освіта</button>
+</nav>
+
+<!-- СЕКЦІЇ -->
+<div id="news" class="section active">
+<div class="card">
+<h2>Новини та документи</h2>
+<iframe src="https://drive.google.com/embeddedfolderview?id=10yZ8hbeFGcA6UJ_ZXMlUG9HWLknJBQqL#list"></iframe>
+</div>
+</div>
+
+<div id="album" class="section"><div class="card"><h2>Фотоальбом</h2><iframe id="albumFrame"></iframe></div></div>
+
+<div id="groups" class="section"><div class="card">
+<h2>Фото груп</h2>
+<select onchange="changeGroup(this.value)">
+<option value="ZIROCHKY">Зірочки</option>
+<option value="KRAPLYNKY">Краплинки</option>
+<option value="SONECHKO">Сонечко</option>
+<option value="SONIASHNYK">Соняшник</option>
+<option value="PIZNAIKO">Пізнайко</option>
+<option value="CHOMUSYKY">Чомусики</option>
+<option value="VESELIKA">Веселка</option>
+<option value="BDZHILKY">Бджілки</option>
+</select>
+<iframe id="groupFrame"></iframe>
+</div></div>
+
+<div id="statut" class="section"><div class="card"><h2>Статут закладу</h2><iframe id="statutFrame"></iframe></div></div>
+<div id="collective" class="section"><div class="card"><h2>Педагогічний колектив</h2><iframe id="collectiveFrame"></iframe></div></div>
+<div id="attestation" class="section"><div class="card"><h2>Атестація педагогічних працівників</h2><iframe id="attestationFrame"></iframe></div></div>
+<div id="schedule" class="section"><div class="card"><h2>Розклад занять</h2><iframe id="scheduleFrame"></iframe></div></div>
+<div id="worktime" class="section"><div class="card"><h2>Режим роботи закладу</h2><iframe id="worktimeFrame"></iframe></div></div>
